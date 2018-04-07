@@ -7,7 +7,7 @@
 }
 
 body {
-    background-image: url('../img/newspaper.jpg');
+    background-image: url('../img/news.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 200%;
@@ -25,7 +25,6 @@ button:focus {
 
 /**************************** header CSS ****************************/
 
-.header,
 header.main-header,
 .container-fluid {
     background-image: url('../img/nyt-header.png');
@@ -33,14 +32,13 @@ header.main-header,
     background-size: 40% 40%;
     background-repeat: no-repeat;
     background-position: center 35%;
-    /* position: fixed; */
     width: 100%;
     height: var(--header-height);
     z-index: 100;
     border-bottom: 5px solid rgba(255, 255, 255, 0.2);
 }
 
-#neon {
+#title {
     color: white;
     position: absolute;
     left: 50%;
@@ -49,46 +47,18 @@ header.main-header,
     transform: translate(-50%, 20%);
     font-size: 7em;
     padding: 0 20px;
-    font-family: 'Quicksand', sans-serif;
-    text-shadow: 0 0 20px #ff005b;
-}
-
-#neon:after {
-    content: '[ WEB-SCRAPER ]';
-    color: #ff005b;
-    position: absolute;
-    padding: 0 20px;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    -webkit-filter: blur(15px);
-    filter: blur(15px);
-}
-
-#neon:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: #fe3a80;
-    z-index: -2;
-    -webkit-filter: blur(40px);
-    filter: blur(40px);
-    opacity: 0.5;
+    font-family: 'Roboto', arial, sans-serif;
 }
 
 .button-dark {
     font-size: 2.2em;
-    padding: 0.7em 1.3em;
+    padding: 1em 1em;
     font-weight: 600;
     border: none;
-    background: black;
+    background: #181818;
     color: #777;
     -webkit-transition: all 300ms ease;
     transition: all 300ms ease;
-    margin: 1em 1em 1em 0.25em;
 }
 
 .button-dark:hover {
@@ -102,24 +72,36 @@ header.main-header,
     right: 0;
 }
 
-
-/* #viewSaved {
-  left: 11.5%;
-} */
+#viewSaved {
+    right: 11.5%;
+}
 
 .filler {
     width: 100%;
-    height: var(--header-height);
+    /* height: var(--header-height); */
+}
+
+.navbar-nav {
+    margin-bottom: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: none;
+    background-color: transparent;
+    min-width: 300px;
+    border: none;
+    margin-right: 0%;
+    margin-top: 3%;
+    float: right;
+    display: block;
 }
 
 
 /***************************** modal CSS *****************************/
 
 .modal-content {
-    background-image: url('../img/notepad-background.jpg');
+    /* background-image: url('../img/postit.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-attachment: fixed; */
     background-position: center 12%;
     border-radius: 0;
     font-family: 'Rock Salt', cursive;
@@ -177,9 +159,6 @@ header.main-header,
 /************************ panel CSS ************************/
 
 .storyPanel {
-    background-image: url('../img/panel-background.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     color: #ddd;
     padding: 20px;
     border-radius: 20px 0 20px 0;
@@ -250,46 +229,4 @@ header.main-header,
     content: "";
     display: table;
     clear: both;
-}
-
-
-/************************ neon title animation CSS ************************/
-
-#neon:before {
-    -webkit-animation-name: pulse;
-    animation-name: pulse;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
-    -webkit-animation-duration: 60ms;
-    animation-duration: 60ms;
-}
-
-@-webkit-keyframes pulse {
-    0% {
-        -webkit-filter: blur(30px);
-        filter: blur(30px);
-    }
-    50% {
-        -webkit-filter: blur(40px);
-        filter: blur(40px);
-    }
-    100% {
-        -webkit-filter: blur(30px);
-        filter: blur(30px);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        -webkit-filter: blur(30px);
-        filter: blur(30px);
-    }
-    50% {
-        -webkit-filter: blur(40px);
-        filter: blur(40px);
-    }
-    100% {
-        -webkit-filter: blur(30px);
-        filter: blur(30px);
-    }
 }
