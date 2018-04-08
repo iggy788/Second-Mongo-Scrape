@@ -1,14 +1,14 @@
-//dependencies
+// Dependencies
 const express = require('express');
 const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const path = require('path');
-
-//initializing the app
+// =============================================================================
+// Initializing express app
 const app = express();
-
+// =============================================================================
 //setting up the database
 const config = require('./config/database');
 mongoose.Promise = Promise;
@@ -19,25 +19,26 @@ mongoose
   })
   .catch(err => console.log('There was an error with your connection:', err));
 
-//setting up favicon middleware
-
-//setting up Morgan middleware
+// Setup Middleware
+// =============================================================================
+// Morgan middleware
 app.use(logger('dev'));
 
-//setting up body parser middleware
+// Body-Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-//setting up handlebars middleware
+// Handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-//setting up the static directory
+// Static Directories
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/articles',express.static(path.join(__dirname, 'public')));
 app.use('/notes',express.static(path.join(__dirname, 'public')));
 
-
+// Routes
+// =============================================================================
 //setting up routes
 const index = require('./routes/indexRoutes')
 const articles = require('./routes/articleRoutes')
@@ -49,6 +50,8 @@ app.use('/articles', articles);
 app.use('/notes', notes);
 app.use('/scrape', scrape);
 
+// Listener
+// =============================================================================
 //starting server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, function () {

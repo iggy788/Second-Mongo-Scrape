@@ -1,9 +1,9 @@
-//Dependencies
+// Dependencies
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-//get route to retrieve all notes for a particlular article
+// GET/FINDONE to find All Notes for an Article
 router.get('/getNotes/:id', function (req,res){
   db.Article
     .findOne({_id: req.params.id})
@@ -12,7 +12,7 @@ router.get('/getNotes/:id', function (req,res){
     .catch(err => res.json(err));
 });
 
-//get route to return a single note to view it
+// GET/FINDONE to find ONE Note for an Article
 router.get('/getSingleNote/:id', function (req,res) {
   db.Note
   .findOne({_id: req.params.id})
@@ -20,7 +20,7 @@ router.get('/getSingleNote/:id', function (req,res) {
   .catch(err => res.json(err));
 });
 
-//post route to create a new note in the database
+// POST/CREATE to Make a New Note in MongDB
 router.post('/createNote', function (req,res){
   let { title, body, articleId } = req.body;
   let note = {
@@ -38,7 +38,7 @@ router.post('/createNote', function (req,res){
     .catch(err => res.json(err));
 });
 
-//post route to delete a note
+// POST/REMOVE to Delete a Note
 router.post('/deleteNote', (req,res)=>{
   let {articleId, noteId} = req.body
   db.Note
@@ -47,5 +47,5 @@ router.post('/deleteNote', (req,res)=>{
     .catch(err => res.json(err));
 });
 
-
+// Export Route
 module.exports = router;

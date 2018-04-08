@@ -1,4 +1,4 @@
-/************************************* Global CSS *************************************/
+/******************************** Global CSS **********************************/
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
@@ -21,7 +21,6 @@ body {
 button:focus {
     outline: none;
 }
-
 
 /**************************** header CSS ****************************/
 
@@ -78,7 +77,6 @@ header.main-header,
 
 .filler {
     width: 100%;
-    /* height: var(--header-height); */
 }
 
 .navbar-nav {
@@ -99,7 +97,6 @@ header.main-header,
 /***************************** modal CSS *****************************/
 
 .modal-content {
-    /* background-image: url('../img/postit.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 12%;

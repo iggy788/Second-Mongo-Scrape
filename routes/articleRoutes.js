@@ -1,9 +1,9 @@
-//Dependencies
+// Dependencies
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-//get route to update 'saved' boolean to true
+// GET/UPDATE to Change 'saved' Boolean to TRUE, Best Idea I've Had
 router.get('/save/:id', (req,res) => {
   db.Article
     .update({_id: req.params.id},{saved: true})
@@ -11,7 +11,7 @@ router.get('/save/:id', (req,res) => {
     .catch(err => res.json(err));
 });
 
-//get route to render savedArticles.handlebars and populate with saved articles
+// GET/FIND to Populate savedArticles.handlebars with Saved Articles
 router.get('/viewSaved', (req, res) => {
   db.Article
     .find({})
@@ -19,7 +19,7 @@ router.get('/viewSaved', (req, res) => {
     .catch(err => res.json(err));
 });
 
-//delete route to remove an article from savedArticles
+// DELETE/REMOVE an Article from savedArticles & Mongo
 router.delete('/deleteArticle/:id', function(req,res){
   db.Article
     .remove({_id: req.params.id})
@@ -27,5 +27,5 @@ router.delete('/deleteArticle/:id', function(req,res){
     .catch(err => res.json(err));
 });
 
-
+// Export Route
 module.exports = router;
